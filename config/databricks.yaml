@@ -1,0 +1,70 @@
+# Configuration for Databricks + Azure deployment
+project:
+  name: "ml-project-databricks"
+  version: "1.0.0"
+  environment: "production"
+
+# Databricks Unity Catalog configuration
+databricks:
+  workspace_url: "https://adb-123456789.azuredatabricks.net"
+  server_hostname: "adb-123456789.azuredatabricks.net"
+  http_path: "/sql/1.0/warehouses/abc123def456"  # SQL Warehouse path
+  warehouse_id: "abc123def456"
+  
+  # Unity Catalog settings
+  catalog: "prod_ml"
+  schema: "ml_features"
+  
+  # Table names
+  tables:
+    raw_data: "raw_customer_data"
+    features: "engineered_features"
+    predictions: "model_predictions"
+
+# Azure Storage (for models and artifacts)
+azure:
+  storage_account: "mlstorageaccount"
+  container: "ml-models"
+  resource_group: "ml-resources"
+  subscription_id: "your-subscription-id"
+
+# Data paths (using Unity Catalog)
+data:
+  catalog: "prod_ml"
+  schema: "ml_features"
+  raw_table: "raw_customer_data"
+  features_table: "engineered_features"
+  predictions_table: "model_predictions"
+  
+# Model storage (Azure Blob)
+paths:
+  models: "abfss://ml-models@mlstorageaccount.dfs.core.windows.net/models/"
+  logs: "abfss://ml-models@mlstorageaccount.dfs.core.windows.net/logs/"
+  artifacts: "abfss://ml-models@mlstorageaccount.dfs.core.windows.net/artifacts/"
+
+model:
+  type: "xgboost"
+  random_state: 42
+  
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  batch_size: 64
+  epochs: 200
+  
+hyperparameters:
+  learning_rate: 0.001
+  n_estimators: 500
+  max_depth: 15
+  
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+mlflow:
+  tracking_uri: "databricks"  # Use Databricks MLflow
+  experiment_name: "/Users/your-email@company.com/ml-project"
+  
+monitoring:
+  enable_data_drift: true
+  enable_model_performance: true

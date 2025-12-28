@@ -1,0 +1,40 @@
+# Local development configuration
+project:
+  name: "ml-project-example"
+  version: "0.1.0"
+  environment: "local"
+
+data:
+  raw_data_path: "data/01-raw"
+  preprocessed_data_path: "data/02-preprocessed"
+  features_path: "data/03-features"
+  predictions_path: "data/04-predictions"
+  
+paths:
+  models: "models/"
+  logs: "logs/"
+  artifacts: "artifacts/"
+
+model:
+  type: "random_forest"  # or xgboost, lightgbm, neural_network
+  random_state: 42
+  
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  batch_size: 32
+  epochs: 100
+  early_stopping_patience: 10
+  
+hyperparameters:
+  learning_rate: 0.001
+  n_estimators: 100
+  max_depth: 10
+  
+logging:
+  level: "DEBUG"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "ml-project-local"

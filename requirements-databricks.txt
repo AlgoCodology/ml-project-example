@@ -1,0 +1,40 @@
+# Core ML Libraries
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+scipy==1.11.1
+
+# Gradient Boosting
+xgboost==1.7.6
+lightgbm==4.0.0
+
+# Databricks connectivity
+databricks-sql-connector==2.9.3
+databricks-sdk==0.18.0
+
+# Azure Storage
+azure-storage-blob==12.19.0
+azure-identity==1.15.0
+
+# MLflow (Databricks includes this, but for local dev)
+mlflow==2.9.2
+
+# Data Processing
+pyarrow==12.0.1
+delta-spark==2.4.0  # For local Delta table operations
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
+joblib==1.3.1
+
+# API Framework
+fastapi==0.103.1
+uvicorn[standard]==0.23.2
+pydantic==2.3.0
+
+# Monitoring
+prometheus-client==0.17.1
+
+# Logging
+loguru==0.7.0

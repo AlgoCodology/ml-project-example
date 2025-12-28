@@ -1,0 +1,45 @@
+# Production configuration
+project:
+  name: "ml-project-example"
+  version: "1.0.0"
+  environment: "production"
+
+data:
+  raw_data_path: "s3://your-bucket/data/01-raw"
+  preprocessed_data_path: "s3://your-bucket/data/02-preprocessed"
+  features_path: "s3://your-bucket/data/03-features"
+  predictions_path: "s3://your-bucket/data/04-predictions"
+  
+paths:
+  models: "s3://your-bucket/models/"
+  logs: "s3://your-bucket/logs/"
+  artifacts: "s3://your-bucket/artifacts/"
+
+model:
+  type: "xgboost"
+  random_state: 42
+  
+training:
+  test_size: 0.2
+  validation_size: 0.1
+  batch_size: 64
+  epochs: 200
+  early_stopping_patience: 15
+  
+hyperparameters:
+  learning_rate: 0.001
+  n_estimators: 500
+  max_depth: 15
+  
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+mlflow:
+  tracking_uri: "https://your-mlflow-server.com"
+  experiment_name: "ml-project-production"
+  
+monitoring:
+  enable_data_drift: true
+  enable_model_performance: true
+  alert_threshold: 0.05
