@@ -1,8 +1,6 @@
 # Setup Instructions for Windows
 
-## Initial Setup Complete! ✅
-
-Your ML project structure has been created. Follow these steps to complete the setup:
+## Follow these steps to complete the windows setup if not already done:
 
 ## 1. Activate Virtual Environment
 
