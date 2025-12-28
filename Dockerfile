@@ -28,11 +28,15 @@ COPY --from=builder /root/.local /root/.local
 # Copy application code
 COPY . .
 
-# Add local bin to PATH
-ENV PATH=/root/.local/bin:$PATH
+# Add local bin and system paths to PATH
+# /root/.local/bin: for pip-installed command-line tools
+# /usr/local/bin: for system-installed binaries
+ENV PATH=/root/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
 
-# Set Python path
-ENV PYTHONPATH=/app:$PYTHONPATH
+# Set Python path for module discovery
+# /app: root application directory
+# /app/src: source code directory with main modules
+ENV PYTHONPATH=/app:/app/src
 
 # Expose port for API
 EXPOSE 8000
