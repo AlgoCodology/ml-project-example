@@ -82,7 +82,12 @@ class ModelInferenceService:
 
 def main():
     """Main inference function"""
-    service = ModelInferenceService()
+    import os
+    
+    # Use local config in Docker, prod config in production
+    config_file = "config/local.yaml" if os.environ.get("ENVIRONMENT") != "production" else "config/prod.yaml"
+    
+    service = ModelInferenceService(config_path=config_file)
     service.load_model()
     
     # Example usage
