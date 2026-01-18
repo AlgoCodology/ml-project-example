@@ -470,12 +470,6 @@ python -c "from src.utils.databricks_loader import DatabricksDataLoader; print('
    ```
 4. Submit pull request
 
-## 📄 License
-
-MIT License
-
-## 👥 Amit Jadhav
-###### Disclaimer in small font :-P (assisted ofcourse by the overlord - Claude Sonnet 4.5)
 
 ML Project Tryout team
 
@@ -563,4 +557,4 @@ docker build --no-cache -t ml-project:latest .
 
 ## 📄 License
 
-MIT License - see the [LICENSE](LICENSE) file for details
+MIT License - see the [LICENSE](LICENSE) file for details (Major Attribution: assisted ofcourse by the overlord - Claude Sonnet 4.5 :-) )
