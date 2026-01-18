@@ -558,3 +558,9 @@ docker build --no-cache -t ml-project:latest .
 ---
 
 **Note**: This template is cross-platform. Windows users can use `commands.bat`, while Linux/Mac users can use `make`. All core functionality works the same across platforms.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 📄 License
+
+MIT License - see the [LICENSE](LICENSE) file for details
